@@ -3,6 +3,7 @@ import {
     useEffect
 } from 'react'
 export default function F() {
+
     const [information, setInformation] = useState('')
     // fetch the API data when the component mounts for the first time
     useEffect(() => {
@@ -11,11 +12,22 @@ export default function F() {
         .then(res => res.json())
             // console.log(response.json())
         .then(information => {
-            // set it in state
-            setInformation(information.text)
+            console.log(information.parsed[0].food.nutrients.ENERC_KCAL)
+            // setInformation(information.text)
         })
         //set it in state
     }, []) // empty dependancy array means only run one time on initial component mount
+
+    useEffect(() => {
+        fetch('https://api.edamam.com/api/recipes/v2?type=public&q=steak&app_id=750505cc&app_key=4d9f46de2a4199d804217a16f108cf24')
+        .then(res => res.json())
+        .then(information => {
+            console.log(information.hits[0].recipe.label)
+            console.log(information.hits[1].recipe.label)
+            console.log(information.hits[3].recipe.label)
+            setInformation(information.hits[3].recipe.label)
+        })
+    })
     return (
         <div>
             <h2>wise words</h2>
