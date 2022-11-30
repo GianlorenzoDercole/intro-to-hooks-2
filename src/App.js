@@ -3,6 +3,7 @@ import './App.css';
 import Counter from './Counter'
 import Wisdom from './Wisdom'
 import Timer from './Timer'
+import Recipe from './Recipe'
 import F from './f'
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       {/* <Counter /> */}
       {/* <Wisdom /> */}
       {/* <Timer /> */}
-      <F />
+      {/* <F /> */}
+      < Recipe />
     </>
   );
 }
