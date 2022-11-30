@@ -25,11 +25,11 @@ export default function Recipe() {
 
             const recipeInformation = [ information.hits[2].recipe.label  ]
 
-            setItem({...item, pic: information.hits[2].recipe.image, label: recipeInformation})
+            setItem({...item, pic: information.hits[2].recipe.image, label: recipeInformation, pic22: information.hits[3].recipe.image, label22: information.hits[2].recipe.label})
             const newRecipes = []
             newRecipes.push(item)
             console.log(newRecipes)
-            // setRecipes([...recipes, information.hits[2].recipe.label, information.hits[2].recipe.label])
+
 
 
 
@@ -44,6 +44,8 @@ export default function Recipe() {
 
             setShowItem(true)
             // console.log(recipes)
+            console.log(input)
+            console.log(item)
         }
     return (
         <div>
@@ -72,6 +74,17 @@ export default function Recipe() {
         { showItem ?
             <div>
                 {item.label}
+            </div> : ''
+        }
+
+        { showItem ?
+            <img src={item.pic22}></img> : ''
+
+        }
+
+        { showItem ?
+            <div>
+                {item.label22}
             </div> : ''
         }
 
