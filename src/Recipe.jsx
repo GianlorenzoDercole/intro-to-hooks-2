@@ -2,6 +2,7 @@ import {
     useState,
     useEffect
 } from 'react'
+import Label from './Label'
 export default function Recipe() {
 
 //
@@ -25,12 +26,11 @@ export default function Recipe() {
 
             const recipeInformation = [ information.hits[2].recipe.label  ]
 
-            setItem({...item, pic: information.hits[2].recipe.image, label: recipeInformation, pic22: information.hits[3].recipe.image, label22: information.hits[2].recipe.label})
-            const newRecipes = []
-            newRecipes.push(item)
-            console.log(newRecipes)
+            setItem({...item, pic: information.hits[2].recipe.image, label: recipeInformation, pic22: information.hits[3].recipe.image, label22: information.hits[3].recipe.label})
 
-
+            const recipeData = information.hits
+            console.log(recipeData)
+            setRecipes(recipeData)
 
 
 
@@ -44,13 +44,25 @@ export default function Recipe() {
 
             setShowItem(true)
             // console.log(recipes)
-            console.log(input)
-            console.log(item)
+            // console.log(input)
+            // console.log(item)
+            // console.log(recipes)
+            // console.log(recipes[5].recipe.label)
         }
+
+        const recipeLabels = recipes.map((recipeLabel, idx) => {
+            return (
+            <div>
+            <Label key={`key${idx}`} recipeLabel={recipeLabel}/>
+            </div>
+            )
+        })
+        console.log(recipes)
     return (
         <div>
-
+            {recipeLabels}
             <div>
+
                 <form onSubmit={e => handleSubmit(e, input, setInput)}>
                     <label htmlFor='name-input'>name</label>
                     <input
