@@ -51,7 +51,7 @@ export default function Counter() {
                 <input
                     type='text'
                     placeholder='name'
-                    if='name-input'
+                    id='name-input'
                     value={user.name}
                     // we have to handle merging old state with new state, when it comes to hooks
                     onChange={e => setUser({ ...user, name: e.target.value })}

@@ -7,7 +7,7 @@ import F from './f'
 function App() {
   return (
     <>
-      <Counter />
+      {/* <Counter /> */}
       {/* <Wisdom /> */}
       {/* <Timer /> */}
       <F />
