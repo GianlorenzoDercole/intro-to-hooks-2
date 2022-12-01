@@ -60,11 +60,11 @@ export default function Recipe() {
         console.log(recipes)
     return (
         <div>
-            {recipeLabels}
+            <h1>Search an ingredient or dish for recipes</h1>
             <div>
 
                 <form onSubmit={e => handleSubmit(e, input, setInput)}>
-                    <label htmlFor='name-input'>name</label>
+                    <label htmlFor='name-input'>name: </label>
                     <input
                         type='text'
                         // placeholder='name'
@@ -73,12 +73,12 @@ export default function Recipe() {
                         onChange={(e) => { setInput(e.target.value)
                         setShowItem(false)}}
                     />
-                    <button type='submit' >add</button>
+                    {/* <button type='submit' >add</button> */}
                 </form>
             </div>
+        {recipeLabels}
 
-
-        { showItem ?
+        {/* { showItem ?
             <img src={item.pic}></img> : ''
 
         }
@@ -98,7 +98,7 @@ export default function Recipe() {
             <div>
                 {item.label22}
             </div> : ''
-        }
+        } */}
 
         </div>
 
