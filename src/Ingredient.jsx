@@ -1,5 +1,6 @@
+
 export default function Ingredient({ ingredient }) {
-    
+
     return(
 
         <div>
