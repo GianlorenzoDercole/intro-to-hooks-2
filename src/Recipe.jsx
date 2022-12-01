@@ -76,7 +76,10 @@ export default function Recipe() {
                     {/* <button type='submit' >add</button> */}
                 </form>
             </div>
-        {recipeLabels}
+            <div className='recipes'>
+            {recipeLabels}
+            </div>
+
 
         {/* { showItem ?
             <img src={item.pic}></img> : ''
