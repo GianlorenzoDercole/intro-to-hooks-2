@@ -60,22 +60,26 @@ export default function Recipe() {
         console.log(recipes)
     return (
         <div>
-            <h1>Search an ingredient or dish for recipes</h1>
-            <div>
+            <div className='inputAndTitle'>
+                <h1>Search an ingredient or dish for recipes</h1>
+                <div>
 
-                <form onSubmit={e => handleSubmit(e, input, setInput)}>
-                    <label htmlFor='name-input'>name: </label>
-                    <input
-                        type='text'
-                        // placeholder='name'
-                        id='name-input'
-                        value={input}
-                        onChange={(e) => { setInput(e.target.value)
-                        setShowItem(false)}}
-                    />
-                    {/* <button type='submit' >add</button> */}
-                </form>
+                    <form onSubmit={e => handleSubmit(e, input, setInput)}>
+                        <label htmlFor='name-input'> </label>
+                        <input
+                            type='text'
+                            // placeholder='name'
+                            id='name-input'
+                            value={input}
+                            onChange={(e) => { setInput(e.target.value)
+                            setShowItem(false)}}
+                        />
+                        {/* <button type='submit' >add</button> */}
+                    </form>
+                </div>
             </div>
+
+
             <div className='recipes'>
             {recipeLabels}
             </div>
