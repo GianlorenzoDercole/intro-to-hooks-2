@@ -61,7 +61,8 @@ export default function Recipe() {
     return (
         <div>
             <div className='inputAndTitle'>
-                <h1>Search an ingredient or dish for recipes</h1>
+                <h1>Recipe Finder</h1>
+
                 <div>
 
                     <form onSubmit={e => handleSubmit(e, input, setInput)}>
@@ -77,6 +78,7 @@ export default function Recipe() {
                         {/* <button type='submit' >add</button> */}
                     </form>
                 </div>
+                <h3>search an ingredient or dish for recipes</h3>
             </div>
 
 
