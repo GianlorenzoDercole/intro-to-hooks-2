@@ -70,7 +70,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 .recipes{
   display: flex;
   justify-content: space-between;
@@ -83,7 +82,12 @@ code {
 .ingredients{
   background-color:white;
   position: absolute;
-
+  background-color:white;
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  right:20%;
+  border: 3px solid #4C6793;
 }
 .inputAndTitle{
   text-align: center;

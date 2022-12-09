@@ -120,7 +120,8 @@
 import axios from 'axios'
 import {
     useState,
-    useEffect
+    useEffect,
+    useRef,
 } from 'react'
 import Label from './Label'
 export default function Recipe() {
@@ -128,6 +129,7 @@ export default function Recipe() {
     const [finalInput, setFinalInput] = useState('pie')
     const [input, setInput] = useState('')
     const [recipes, setRecipes] = useState([])
+    const inputEl = useRef('pie')
     const [item, setItem] = useState({
         pic: '',
         label: ''
@@ -152,16 +154,21 @@ export default function Recipe() {
         //     console.log(recipeData)
         //     setRecipes(recipeData)
         const getRecipes = async () => {
-            const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${finalInput}&app_id=750505cc&app_key=4d9f46de2a4199d804217a16f108cf24`)
+            const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${inputEl.current.value}&app_id=750505cc&app_key=4d9f46de2a4199d804217a16f108cf24`)
+            const responseT = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=$pie&app_id=750505cc&app_key=4d9f46de2a4199d804217a16f108cf24`)
             const recipeData = response.data.hits
+            const recipeDatat = responseT.data.hits
                 console.log(recipeData)
-                setRecipes(recipeData)
+                {inputEl.current.value ? setRecipes(recipeData) : setRecipes(recipeDatat)}
+                console.log('NEW')
+
+
         }
         getRecipes()
 
 
 
-    }, [input])
+    }, [inputEl.current.value])
 
 
 
@@ -187,14 +194,28 @@ export default function Recipe() {
             )
         })
         console.log(recipes)
+
+
+
+        const onButtonClick = (e) => {
+            e.preventDefault()
+            // inputEl.current.focus()
+
+            // console.log(inputEl.current.value)
+            setFinalInput(inputEl.current.value)
+            console.log(finalInput)
+
+        }
+
     return (
         <div>
             <div className='inputAndTitle'>
                 <h1>Recipe Finder</h1>
 
                 <div>
-
-                    <form onSubmit={handleSubmit}>
+                    <input ref={inputEl} type='text' />
+                    <button onClick={onButtonClick}>hi</button>
+                    {/* <form onSubmit={handleSubmit}>
                         <label htmlFor='name-input'> </label>
                         <input
                             type='text'
@@ -204,8 +225,9 @@ export default function Recipe() {
                             onChange={(e) => { setInput(e.target.value)
                             setShowItem(false)}}
                         />
+
                         <button className='inputButton' type='submit' >add</button>
-                    </form>
+                    </form> */}
                 </div>
                 <h2>search an ingredient or dish for recipes</h2>
             </div>
@@ -220,3 +242,10 @@ export default function Recipe() {
 
     )
 }
+
+
+
+/////////////////////////////////////////
+////
+{/* use ref -- no onchange target input inputref.current.value  gives value of input */}
+                        {/* replace state with -- update state after submission -- start with empty values in schema */}
