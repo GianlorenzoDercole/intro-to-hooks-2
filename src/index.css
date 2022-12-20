@@ -105,6 +105,8 @@ h1{
   color:#4C6793;
   font-size: 60px;
 }
+
+
 ::placeholder{
   color: black
 }
@@ -116,7 +118,9 @@ h2 {
 }
 
 .searchButton{
-  height: 60px;
+  height: 46px;
+  font-size: 26px;
+  margin-left: 10px;
 }
 
 .inputButton {
